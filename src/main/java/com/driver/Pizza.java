@@ -7,54 +7,13 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private int extraCheese;
-    private int extraToppings;
-    private int paperBag;
+    private final int extraCheese;
+    private final int extraToppings;
+    private final int paperBag;
     private boolean isChessAdded;
     private boolean isToppingsAdded;
     private boolean isTakeAwayMentioned;
     private StringBuilder finalBill;
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public Boolean getVeg() {
-        return isVeg;
-    }
-
-    public void setVeg(Boolean veg) {
-        isVeg = veg;
-    }
-
-    public void setBill(String bill) {
-        this.bill = bill;
-    }
-
-    public int getExtraCheese() {
-        return extraCheese;
-    }
-
-    public void setExtraCheese(int extraCheese) {
-        this.extraCheese = extraCheese;
-    }
-
-    public int getExtraToppings() {
-        return extraToppings;
-    }
-
-    public void setExtraToppings(int extraToppings) {
-        this.extraToppings = extraToppings;
-    }
-
-    public int getPaperBag() {
-        return paperBag;
-    }
-
-    public void setPaperBag(int paperBag) {
-        this.paperBag = paperBag;
-    }
-
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -63,12 +22,12 @@ public class Pizza {
         if(isVeg) {
             this.price = 300;
             this.extraToppings = 70;
-            finalBill.append("Base Price Of The Pizza: "+price+"\n");
+            finalBill.append("Base Price Of The Pizza: ").append(price).append("\n");
         }
         else {
             this.price = 400;
             this.extraToppings = 120;
-            finalBill.append("Base Price Of The Pizza: "+price+"\n");
+            finalBill.append("Base Price Of The Pizza: ").append(price).append("\n");
         }
         this.extraCheese = 80;
         this.paperBag = 20;
@@ -82,7 +41,7 @@ public class Pizza {
     public void addExtraCheese(){
         if(!isChessAdded) {
             price+=extraCheese;
-            finalBill.append("Extra Cheese Added: "+extraCheese+"\n");
+            finalBill.append("Extra Cheese Added: ").append(extraCheese).append("\n");
             isChessAdded = true;
         }
     }
@@ -90,7 +49,7 @@ public class Pizza {
     public void addExtraToppings(){
         if(!isToppingsAdded) {
             price+=extraToppings;
-            finalBill.append("Extra Toppings Added: "+extraToppings+"\n");
+            finalBill.append("Extra Toppings Added: ").append(extraToppings).append("\n");
             isToppingsAdded = true;
         }
     }
@@ -98,14 +57,14 @@ public class Pizza {
     public void addTakeaway(){
         if(!isTakeAwayMentioned) {
             price += paperBag;
-            finalBill.append("Paperbag Added: "+paperBag+"\n");
+            finalBill.append("Paperbag Added: ").append(paperBag).append("\n");
             isTakeAwayMentioned = true;
         }
 
     }
 
     public String getBill(){
-        finalBill.append("Total Price: "+price+"\n");
+        finalBill.append("Total Price: ").append(price).append("\n");
         this.bill = finalBill.toString();
         return this.bill;
     }
