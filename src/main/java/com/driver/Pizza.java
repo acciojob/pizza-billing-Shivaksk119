@@ -13,6 +13,7 @@ public class Pizza {
     private boolean isChessAdded;
     private boolean isToppingsAdded;
     private boolean isTakeAwayMentioned;
+    private StringBuilder finalBill;
 
     public void setPrice(int price) {
         this.price = price;
@@ -57,16 +58,17 @@ public class Pizza {
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
+        finalBill = new StringBuilder();
 
         if(isVeg) {
             this.price = 300;
             this.extraToppings = 70;
-            this.bill = "Base Price Of The Pizza: "+price+"\n";
+            finalBill.append("Base Price Of The Pizza: "+price+"\n");
         }
         else {
             this.price = 400;
             this.extraToppings = 120;
-            this.bill = "Base Price Of The Pizza: "+price+"\n";
+            finalBill.append("Base Price Of The Pizza: "+price+"\n");
         }
         this.extraCheese = 80;
         this.paperBag = 20;
@@ -80,7 +82,7 @@ public class Pizza {
     public void addExtraCheese(){
         if(!isChessAdded) {
             price+=extraCheese;
-            bill += "Extra Cheese Added: "+extraCheese+"\n";
+            finalBill.append("Extra Cheese Added: "+extraCheese+"\n");
             isChessAdded = true;
         }
     }
@@ -88,7 +90,7 @@ public class Pizza {
     public void addExtraToppings(){
         if(!isToppingsAdded) {
             price+=extraToppings;
-            bill += "Extra Toppings Added: "+extraToppings+"\n";
+            finalBill.append("Extra Toppings Added: "+extraToppings+"\n");
             isToppingsAdded = true;
         }
     }
@@ -96,14 +98,15 @@ public class Pizza {
     public void addTakeaway(){
         if(!isTakeAwayMentioned) {
             price += paperBag;
-            bill += "Paperbag Added: "+paperBag+"\n";
+            finalBill.append("Paperbag Added: "+paperBag+"\n");
             isTakeAwayMentioned = true;
         }
 
     }
 
     public String getBill(){
-        bill += "Total Price: "+price+"\n";
+        finalBill.append("Total Price: "+price+"\n");
+        this.bill = finalBill.toString();
         return this.bill;
     }
 }
