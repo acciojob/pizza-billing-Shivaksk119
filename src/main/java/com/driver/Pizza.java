@@ -61,12 +61,12 @@ public class Pizza {
         if(isVeg) {
             this.price = 300;
             this.extraToppings = 70;
-            this.bill = "Base Price Of The Pizza: "+price+'\n';
+            this.bill = "Base Price Of The Pizza: "+price+"\n";
         }
         else {
             this.price = 400;
             this.extraToppings = 120;
-            this.bill = "Base Price Of The Pizza: "+price+'\n';
+            this.bill = "Base Price Of The Pizza: "+price+"\n";
         }
         this.extraCheese = 80;
         this.paperBag = 20;
@@ -80,7 +80,7 @@ public class Pizza {
     public void addExtraCheese(){
         if(!isChessAdded) {
             price+=extraCheese;
-            bill += "Extra Cheese Added: "+extraCheese+'\n';
+            bill += "Extra Cheese Added: "+extraCheese+"\n";
             isChessAdded = true;
         }
     }
@@ -88,7 +88,7 @@ public class Pizza {
     public void addExtraToppings(){
         if(!isToppingsAdded) {
             price+=extraToppings;
-            bill += "Extra Toppings Added: "+extraToppings+'\n';
+            bill += "Extra Toppings Added: "+extraToppings+"\n";
             isToppingsAdded = true;
         }
     }
@@ -96,14 +96,14 @@ public class Pizza {
     public void addTakeaway(){
         if(!isTakeAwayMentioned) {
             price += paperBag;
-            bill += "Paperbag Added: "+paperBag+'\n';
+            bill += "Paperbag Added: "+paperBag+"\n";
             isTakeAwayMentioned = true;
         }
 
     }
 
     public String getBill(){
-        bill += "Total Price: "+price+'\n';
+        bill += "Total Price: "+price+"\n";
         return this.bill;
     }
 }
